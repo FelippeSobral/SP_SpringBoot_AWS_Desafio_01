@@ -1,8 +1,10 @@
-package Application;
+package Aplicação;
 
+import Menu.AutorMenu;
 import Menu.EmprestimoMenu;
 import Menu.LivroMenu;
-import Services.LivroService;
+import Menu.MembroMenu;
+import Serviços.LivroService;
 import resource.Create_Tables;
 
 
@@ -22,10 +24,12 @@ public class Biblioteca {
             System.out.println("1. Cadastrar Livro");
             System.out.println("2. Buscar Livro");
             System.out.println("3. Listar Livros");
-            System.out.println("4. Emprestar Livro");
-            System.out.println("5. Devolver Livro");
-            System.out.println("6. Listar Empréstimos");
-            System.out.println("7. Sair");
+            System.out.println("4. Cadastrp De Autor");
+            System.out.println("5. Cadastro de Membro");
+            System.out.println("6. emprestar Livro");
+            System.out.println("7. devolver Livro");
+            System.out.println("8. Listar Emprestimo");
+            System.out.println("9. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -43,15 +47,21 @@ public class Biblioteca {
                     LivroMenu.listarLivros();
                     break;
                 case 4:
-                    EmprestimoMenu.emprestarLivro();
+                    AutorMenu.cadastroDeAutor();
                     break;
                 case 5:
-                    EmprestimoMenu.devolverLivro();
+                    MembroMenu.cadastrarMembro();
                     break;
                 case 6:
-                    EmprestimoMenu.listarEmprestimos();
+                    EmprestimoMenu.emprestarLivro();
                     break;
                 case 7:
+                    EmprestimoMenu.devolverLivro();
+                    break;
+                case 8:
+                    EmprestimoMenu.listarEmprestimos();
+                    break;
+                case 9:
                     System.out.println("Saindo");
                     break;
 
@@ -62,20 +72,8 @@ public class Biblioteca {
 
             System.out.println("---------------------------------");
 
-
-
-
         }
 
-
-
-
-
-
     }
-
-
-
-
 
 }

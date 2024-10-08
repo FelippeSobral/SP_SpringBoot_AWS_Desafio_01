@@ -1,4 +1,4 @@
-package Services;
+package Serviços;
 
 import DAO.EmprestimoDAO;
 import DAO.LivroDAO;
@@ -71,7 +71,7 @@ public class EmprestimoService {
         emprestimo.setEstado(diasAtraso > 0 ? "ATRASADO" : "CONCLUÍDO");
         emprestimo.setMulta(multa);
 
-        emprestimoDAO.devolverLivro(idEmprestimo);  // Atualiza a devolução no banco de dados
+        emprestimoDAO.devolverLivro(idEmprestimo);
 
 
         Livro livro = emprestimo.getLivro();

@@ -24,7 +24,7 @@ public class Emprestimo {
         this.multa = multa;
     }
 
-    // Getters e Setters
+
     public int getId() {
         return id;
     }

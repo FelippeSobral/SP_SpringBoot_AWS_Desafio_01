@@ -18,9 +18,6 @@ public class Membro extends Pessoa {
         this.emprestimos = emprestimos;
     }
 
-
-
-
     public int getId() {
         return id;
     }
