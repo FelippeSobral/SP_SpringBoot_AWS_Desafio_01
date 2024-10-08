@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Livro {
 
+    private int id;
     private String titulo;
     private String autor;
     private String genero;
@@ -12,16 +13,22 @@ public class Livro {
     private int quantidade;
 
 
-    public Livro(int isbn, int quantidade, int dataPublicacao, String genero, String autor, String titulo) {
+
+
+    public Livro(int id, int isbn, LocalDate dataPublicacao, String genero, String autor, String titulo) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.genero = genero;
+        this.dataPublicacao = dataPublicacao;
         this.isbn = isbn;
         this.quantidade = quantidade;
-        this.dataPublicacao = LocalDate.ofEpochDay(dataPublicacao);
-        this.genero = genero;
-        this.autor = autor;
-        this.titulo = titulo;
-
     }
 
+
+
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getTitulo() {
         return titulo;
@@ -29,6 +36,14 @@ public class Livro {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public String getAutor() {
@@ -43,16 +58,8 @@ public class Livro {
         return dataPublicacao;
     }
 
-    public void setDataPublicacao(int dataPublicacao) {
-        this.dataPublicacao = LocalDate.ofEpochDay(dataPublicacao);
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setDataPublicacao(LocalDate dataPublicacao) {
+        this.dataPublicacao = dataPublicacao;
     }
 
     public int getIsbn() {
@@ -70,6 +77,7 @@ public class Livro {
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
-
-
 }
+
+
+

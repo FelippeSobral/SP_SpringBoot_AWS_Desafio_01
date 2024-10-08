@@ -6,20 +6,16 @@ import java.sql.SQLException;
 
 public class ConnectionFactory {
 
-        public Connection recuperarConexão() {
-
-             try {
-                     return DriverManager
-                             .getConnection("jdbc:mysql://localhost:3306/Gerenciamento_De_Biblioteca?user=root1&password=1234567");
-             } catch (SQLException e) {
-                     throw new RuntimeException(e);
-             }
 
 
+        public static Connection recuperarConexao() throws SQLException {
+            String url = "jdbc:mysql://localhost:3306/gerenciamento_de_biblioteca";
+            String usuario = "root1";
+            String senha = "1234567";
+
+
+            return DriverManager.getConnection(url, usuario, senha);
         }
 }
-
-
-
 
 
