@@ -4,68 +4,82 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Emprestimo {
-
+    private int id;
     private Livro livro;
-    private Membro membro;
+    private int membroId;
     private LocalDate dataEmprestimo;
-    private LocalDate dataDevolucao;
-    private EstadoEmprestimo estado;
+    private LocalDate dataDevolucaoPrevista;
+    private LocalDate dataDevolucaoReal;
+    private String estado;
     private BigDecimal multa;
 
-    public Emprestimo(Livro livro, Membro membro, LocalDate dataDevolucao, LocalDate dataEmprestimo, BigDecimal multa, EstadoEmprestimo estado) {
+    public Emprestimo(int id, Livro livro, int membroId, LocalDate dataEmprestimo, LocalDate dataDevolucaoPrevista, LocalDate dataDevolucaoReal, String estado, BigDecimal multa) {
+        this.id = id;
         this.livro = livro;
-        this.membro = membro;
-        this.dataDevolucao = dataDevolucao;
+        this.membroId = membroId;
         this.dataEmprestimo = dataEmprestimo;
-        this.multa = multa;
+        this.dataDevolucaoPrevista = dataDevolucaoPrevista;
+        this.dataDevolucaoReal = dataDevolucaoReal;
         this.estado = estado;
+        this.multa = multa;
+    }
+
+    // Getters e Setters
+    public int getId() {
+        return id;
     }
 
     public Livro getLivro() {
         return livro;
     }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
-
-    public Membro getMembro() {
-        return membro;
-    }
-
-    public void setMembro(Membro membro) {
-        this.membro = membro;
+    public int getMembroId() {
+        return membroId;
     }
 
     public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
 
-    public void setDataEmprestimo(LocalDate dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
+    public LocalDate getDataDevolucaoPrevista() {
+        return dataDevolucaoPrevista;
     }
 
-    public LocalDate getDataDevolucao() {
-        return dataDevolucao;
+    public LocalDate getDataDevolucaoReal() {
+        return dataDevolucaoReal;
     }
 
-    public void setDataDevolucao(LocalDate dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
-    }
-
-    public EstadoEmprestimo getEstado() {
+    public String getEstado() {
         return estado;
-    }
-
-    public void setEstado(EstadoEmprestimo estado) {
-        this.estado = estado;
     }
 
     public BigDecimal getMulta() {
         return multa;
     }
 
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public void setDataDevolucaoReal(LocalDate dataDevolucaoReal) {
+        this.dataDevolucaoReal = dataDevolucaoReal;
+    }
+
     public void setMulta(BigDecimal multa) {
         this.multa = multa;
+    }
+
+    @Override
+    public String toString() {
+        return "Emprestimo{" +
+                "id=" + id +
+                ", livro=" + livro +
+                ", membroId=" + membroId +
+                ", dataEmprestimo=" + dataEmprestimo +
+                ", dataDevolucaoPrevista=" + dataDevolucaoPrevista +
+                ", dataDevolucaoReal=" + dataDevolucaoReal +
+                ", estado='" + estado + '\'' +
+                ", multa=" + multa +
+                '}';
     }
 }

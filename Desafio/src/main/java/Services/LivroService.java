@@ -26,6 +26,10 @@ public class LivroService {
             return livroDAO.buscarTodos();
         }
 
+    public Livro buscarPorISBN(int isbn) throws SQLException {
+        return livroDAO.buscarPorISBN(isbn);
+    }
+
 
     public List<Livro> ordendarPorTitulo() throws SQLException {
         List<Livro> livros = livroDAO.buscarTodos();

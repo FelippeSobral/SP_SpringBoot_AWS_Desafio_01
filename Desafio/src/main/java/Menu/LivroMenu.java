@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class LivroMenu {
 
+
     private static Scanner sc = new Scanner(System.in);
 
     public static void cadastrarLivro() {
@@ -50,6 +51,36 @@ public class LivroMenu {
             System.out.println("Erro ao cadastrar livro!" + e.getMessage());
         }
     }
+
+
+    public static void buscarLivroPorISBN() {
+        LivroService livroService = new LivroService();
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.println("Digite o ISBN do livro:");
+            int isbn = sc.nextInt(); // Usuário informa o ISBN
+
+            Livro livro = livroService.buscarPorISBN(isbn);
+            if (livro != null) {
+                System.out.println("Livro encontrado: ");
+                System.out.println("Título: " + livro.getTitulo());
+                System.out.println("Autor: " + livro.getAutor());
+                System.out.println("Gênero: " + livro.getGenero());
+                System.out.println("Data de Publicação: " + livro.getDataPublicacao());
+                System.out.println("Quantidade: " + livro.getQuantidade());
+            } else {
+                System.out.println("Livro com ISBN " + isbn + " não encontrado.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao buscar livro: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 
 
     public static void listarLivros() {

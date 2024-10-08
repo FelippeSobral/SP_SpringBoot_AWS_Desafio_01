@@ -1,10 +1,10 @@
 package Entidades;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Livro {
 
+    private int id;
     private String titulo;
     private String autor;
     private String genero;
@@ -13,7 +13,9 @@ public class Livro {
     private int quantidade;
 
 
-    public Livro(int isbn, int quantidade, LocalDate dataPublicacao, String genero, String autor, String titulo) {
+
+
+    public Livro(int id, int isbn, LocalDate dataPublicacao, String genero, String autor, String titulo) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -21,6 +23,12 @@ public class Livro {
         this.isbn = isbn;
         this.quantidade = quantidade;
     }
+
+
+
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getTitulo() {
         return titulo;

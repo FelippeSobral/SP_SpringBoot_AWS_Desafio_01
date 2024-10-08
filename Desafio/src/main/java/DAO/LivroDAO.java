@@ -10,7 +10,7 @@ import java.util.List;
 
 public class LivroDAO {
 
-    //metodo para inserir um livro no banco de dados
+
 
     public void insert (Livro livro) throws Exception {
         String sql ="INSERT INTO livros (titulo, autor, data_publicacao, isbn, genero, quantidade) VALUES (?, ?, ?, ?, ?, ?)";
@@ -24,11 +24,11 @@ public class LivroDAO {
             stmt.setString(5, livro.getGenero());
             stmt.setInt(6, livro.getQuantidade());
 
-            stmt.executeUpdate();  // Executa a query de inserção
+            stmt.executeUpdate();
         }
     }
 
-        // metodo para buscar um livro pelo ISBN
+
 
     public Livro buscarPorISBN(int isbn) throws SQLException {
         String sql ="SELECT * FROM livros WHERE isbn = ?";
@@ -44,15 +44,31 @@ public class LivroDAO {
                         rs.getString("titulo"),
                         rs.getString("genero"),
                         rs.getString("autor")
-                                                );
+                        );
             }
-
             return null;
-
         }
     }
 
-            //metodo para buscar todos os livros
+    public void atualizarQuantidade(int isbn, int novaQuantidade) throws SQLException {
+        String sql = "UPDATE livros SET quantidade = ? WHERE id = ?";
+
+        try (Connection conn = ConnectionFactory.recuperarConexao();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, novaQuantidade);
+            stmt.setInt(2, isbn);
+
+            stmt.executeUpdate();
+        }
+    }
+
+
+
+
+
+
+
 
             public List<Livro> buscarTodos() throws SQLException {
                 String sql = "SELECT * FROM livros";

@@ -1,18 +1,17 @@
 package Entidades;
 
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
 public class Membro extends Pessoa {
 
-    private Long id;
+    private int id;
     private LocalDate dataAssociacao;
     private Set<Emprestimo> emprestimos;
 
 
-    public Membro(String nome, String endereco, String email, String telefone, Long id, LocalDate dataAssociacao, Set<Emprestimo> emprestimos) {
+    public Membro(String nome, String endereco, String email, String telefone, int id, LocalDate dataAssociacao, Set<Emprestimo> emprestimos) {
         super(nome, endereco, email, telefone);
         this.id = id;
         this.dataAssociacao = dataAssociacao;
@@ -20,11 +19,13 @@ public class Membro extends Pessoa {
     }
 
 
-    public Long getId() {
+
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
