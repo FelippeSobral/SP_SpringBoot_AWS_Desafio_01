@@ -3,10 +3,7 @@ package DAO;
 import Entidades.Membro;
 import resource.ConnectionFactory;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MembroDAO {
 
@@ -22,6 +19,21 @@ public class MembroDAO {
         }catch (SQLException e) {
             System.out.println("Erro ao inserir membro: " + e.getMessage());
         }
+    }
+
+    public boolean EmailExistente(String email) {
+        String sql = "SELECT COUNT(*) FROM membros WHERE email = ?";
+        try (Connection connection = ConnectionFactory.recuperarConexao();
+             PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
 

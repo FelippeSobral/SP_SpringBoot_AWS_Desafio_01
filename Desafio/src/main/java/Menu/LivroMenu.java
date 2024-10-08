@@ -1,7 +1,7 @@
 package Menu;
 
 import Entidades.Livro;
-import Services.LivroService;
+import Serviços.LivroService;
 
 import java.sql.SQLException;
 import java.time.LocalDate;

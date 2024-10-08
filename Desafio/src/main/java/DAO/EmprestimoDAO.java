@@ -130,7 +130,7 @@ public class EmprestimoDAO {
                 BigDecimal multa = BigDecimal.ZERO;
 
                 if (diasAtraso > 0) {
-                    multa = BigDecimal.valueOf(diasAtraso * 0.50);  // Exemplo de multa: R$ 0,50 por dia de atraso
+                    multa = BigDecimal.valueOf(diasAtraso * 0.50);
                 }
 
                 String updateSql = "UPDATE Emprestimos SET data_devolucao_real = ?, estado = ?, multa = ? WHERE id = ?";

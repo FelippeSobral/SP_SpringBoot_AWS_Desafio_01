@@ -19,6 +19,10 @@ public class Autor extends Pessoa {
         this.biografia = biografia;
     }
 
+    public Autor() {
+
+    }
+
     public String getBiografia() {
         return biografia;
     }
