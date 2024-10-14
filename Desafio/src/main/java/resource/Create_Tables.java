@@ -12,11 +12,12 @@ public class Create_Tables extends ConnectionFactory {
         try (Connection conn = recuperarConexao(); Statement stmt = conn.createStatement()) {
 
 
-            String criarTabelaAutor = "CREATE TABLE IF NOT EXISTS Autor ("
+            String criarTabelaAutor = "CREATE TABLE IF NOT EXISTS Autores ("
                     + "id integer PRIMARY KEY AUTO_INCREMENT, "
                     + "nome varchar(100) NOT NULL, "
                     + "dataNascimento DATE, "
-                    + "nacionalidade VARCHAR(255) NOT NULL "
+                    + "nacionalidade VARCHAR(255) NOT NULL, "
+                    + "biografia VARCHAR(255) NOT NULL"
                     + ")";
             stmt.execute(criarTabelaAutor);
 

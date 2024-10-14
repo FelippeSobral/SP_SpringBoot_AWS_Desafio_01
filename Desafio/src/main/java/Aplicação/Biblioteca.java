@@ -9,6 +9,7 @@ import Menu.MembroMenu;
 import Serviços.AutorServiço;
 import Serviços.LivroService;
 import Serviços.MembroService;
+import resource.ConnectionFactory;
 import resource.Create_Tables;
 
 
@@ -22,6 +23,8 @@ public class Biblioteca {
     public static  void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
         Create_Tables.createTables();
+
+        ConnectionFactory connectionFactory = new ConnectionFactory();
 
         AutorDAO autorDAO = new AutorDAO();
         AutorServiço autorServiço = new AutorServiço(autorDAO);
