@@ -39,11 +39,12 @@ public class LivroDAO {
             if (rs.next()) {
                 return new Livro(
                         rs.getInt("isbn"),
-                        rs.getInt("quantidade"),
                         rs.getDate("data_publicacao").toLocalDate(),
+                        rs.getString("autor"),
                         rs.getString("titulo"),
                         rs.getString("genero"),
-                        rs.getString("autor")
+                        rs.getInt("quantidade")
+
                         );
             }
             return null;
@@ -64,12 +65,6 @@ public class LivroDAO {
     }
 
 
-
-
-
-
-
-
             public List<Livro> buscarTodos() throws SQLException {
                 String sql = "SELECT * FROM livros";
                 List<Livro> livros = new ArrayList<>();
@@ -82,11 +77,11 @@ public class LivroDAO {
                     while (rs.next()) {
                         Livro livro = new Livro(
                                 rs.getInt("isbn"),
-                                rs.getInt("quantidade"),
                                 rs.getDate("data_publicacao").toLocalDate(),
                                 rs.getString("titulo"),
                                 rs.getString("genero"),
-                                rs.getString("autor")
+                                rs.getString("autor"),
+                                rs.getInt("quantidade")
                         );
                         livros.add(livro);
                     }

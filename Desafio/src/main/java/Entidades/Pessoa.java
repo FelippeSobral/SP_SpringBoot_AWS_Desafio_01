@@ -1,6 +1,7 @@
 package Entidades;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Pessoa {
 
@@ -49,5 +50,9 @@ public class Pessoa {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void Membro(String nome, String endereco, String email, String telefone, int i, LocalDate dataAssociacao, Object o) {
+
     }
 }

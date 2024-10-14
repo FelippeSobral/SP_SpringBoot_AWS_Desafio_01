@@ -1,22 +1,39 @@
 package Aplicação;
 
+import DAO.AutorDAO;
+import DAO.MembroDAO;
 import Menu.AutorMenu;
 import Menu.EmprestimoMenu;
 import Menu.LivroMenu;
 import Menu.MembroMenu;
+import Serviços.AutorServiço;
 import Serviços.LivroService;
+import Serviços.MembroService;
 import resource.Create_Tables;
 
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import static Menu.AutorMenu.autorService;
+
 public class Biblioteca {
 
     public static  void main(String[] args) throws SQLException {
         Scanner scanner = new Scanner(System.in);
         Create_Tables.createTables();
+
+        AutorDAO autorDAO = new AutorDAO();
+        AutorServiço autorServiço = new AutorServiço(autorDAO);
+        MembroDAO membroDAO = new MembroDAO();
+        MembroService membroService = new MembroService(membroDAO);
         LivroService livroService = new LivroService();
+
+        AutorMenu autorMenu = new AutorMenu(autorServiço);
+        MembroMenu membroMenu = new MembroMenu(membroService);
+        LivroMenu libroMenu = new LivroMenu(livroService);
+
+
 
         while (true) {
 

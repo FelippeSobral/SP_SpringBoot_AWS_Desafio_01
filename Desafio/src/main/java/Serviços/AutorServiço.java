@@ -10,14 +10,16 @@ public class AutorServiço {
         this.autorDAO = autorDAO;
     }
 
-    public  boolean cadastrarAutor(Autor autor) {
+    public AutorServiço() {
+
+    }
+
+    public  void cadastrarAutor(Autor autor) {
         if (autorDAO.nomeExite(autor.getNome())) {
             System.out.println("Autor já existe.");
-            return false;
+            return;
         }
         autorDAO.Salvamento(autor);
         System.out.println("Autor cadastrado com sucesso!");
-        return true;
-
 
     }}

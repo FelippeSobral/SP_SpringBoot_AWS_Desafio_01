@@ -10,8 +10,8 @@ public class ConnectionFactory {
 
         public static Connection recuperarConexao() throws SQLException {
             String url = "jdbc:mysql://localhost:3306/gerenciamento_de_biblioteca";
-            String usuario = "root1";
-            String senha = "1234567";
+            String usuario = "root";
+            String senha = "";
 
 
             return DriverManager.getConnection(url, usuario, senha);

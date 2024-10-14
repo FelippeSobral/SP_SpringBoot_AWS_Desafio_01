@@ -18,8 +18,8 @@ public class LivroService {
         if (livroDAO.buscarPorISBN(livro.getIsbn()) != null) {
             throw new Exception("ISBN já cadastrado");
         }
+            livroDAO.insert(livro);
 
-        livroDAO.insert(livro);
     }
 
     public List<Livro> buscarLivros() throws SQLException {

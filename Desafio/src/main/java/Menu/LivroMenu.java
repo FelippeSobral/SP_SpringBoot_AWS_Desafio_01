@@ -13,6 +13,9 @@ public class LivroMenu {
 
     private static Scanner sc = new Scanner(System.in);
 
+    public LivroMenu(LivroService livroService) {
+    }
+
     public static void cadastrarLivro() {
        LivroService livroService = new LivroService();
 
@@ -41,7 +44,7 @@ public class LivroMenu {
         LocalDate dataPublicacao = LocalDate.parse(data);
 
 
-        Livro livro = new Livro(isbn,quantidade,dataPublicacao,genero,autor,titulo);
+        Livro livro = new Livro(isbn,dataPublicacao,genero,autor,titulo, quantidade);
 
 
         try{

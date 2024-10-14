@@ -11,6 +11,10 @@ public class Membro extends Pessoa {
     private Set<Emprestimo> emprestimos;
 
 
+    public Membro() {
+
+    }
+
     public Membro(String nome, String endereco, String email, String telefone, int id, LocalDate dataAssociacao, Set<Emprestimo> emprestimos) {
         super(nome, endereco, email, telefone);
         this.id = id;

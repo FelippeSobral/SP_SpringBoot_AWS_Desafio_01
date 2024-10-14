@@ -10,13 +10,15 @@ public class MembroService {
         this.membroDAO = membroDAO;
     }
 
-    public boolean cadastrarMembro(Membro membro) {
+    public void cadastrarMembro(Membro membro) {
+
         if (membroDAO.EmailExistente(membro.getEmail())) {
             System.out.println("Email já existe.");
-            return false;
+            return;
         }
         membroDAO.inserirMembro(membro);
         System.out.println("Membro cadastrado com sucesso!");
-        return true;
+
+
     }
 }

@@ -15,7 +15,8 @@ public class Livro {
 
 
 
-    public Livro(int id, int isbn, LocalDate dataPublicacao, String genero, String autor, String titulo) {
+    public Livro( int isbn, LocalDate dataPublicacao, String genero, String autor, String titulo, int quantidade) {
+
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
